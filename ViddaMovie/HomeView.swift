@@ -13,9 +13,9 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geo in
             ScrollView {
-                LazyVStack {
-                    AsyncImage(url: URL(string: Constants.testTitleURL)) {
-                        image in
+                LazyVStack(spacing: 0) {
+                    // Hero Image Section
+                    AsyncImage(url: URL(string: Constants.testTitleURL)) { image in
                         image
                             .resizable()
                             .scaledToFit()
@@ -27,7 +27,7 @@ struct HomeView: View {
                                             location: 0.8
                                         ),
                                         Gradient.Stop(
-                                            color: .gradient,
+                                            color: .black,
                                             location: 1
                                         ),
                                     ],
@@ -43,27 +43,32 @@ struct HomeView: View {
                         height: geo.size.height * 0.85
                     )
 
-                    HStack {
+                    // Action Buttons
+                    HStack(spacing: 20) {
                         Button {
-
+                            // Add play action
                         } label: {
                             Text(Constants.playString)
                                 .ghostButton()
                         }
                         Button {
-
+                            // Add download action
                         } label: {
                             Text(Constants.downloadString)
                                 .ghostButton()
                         }
                     }
+                    .padding(.vertical, 20)
+                    
+                    // Movie Lists
+                    HorizontalListView(header: Constants.trendingMovieString)
+                    HorizontalListView(header: Constants.trendingTVString)
+                    HorizontalListView(header: Constants.topRatedMovieString)
+                    HorizontalListView(header: Constants.topRatedTVString)
                 }
             }
+            .ignoresSafeArea(edges: .top)
         }
-        HorizontalListView(header: Constants.trendingMovieString)
-        HorizontalListView(header: Constants.trendingTVString)
-        HorizontalListView(header: Constants.topRatedMovieString)
-        HorizontalListView(header: Constants.topRatedTVString)
     }
 }
 
