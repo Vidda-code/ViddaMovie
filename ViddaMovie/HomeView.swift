@@ -82,8 +82,8 @@ struct HomeView: View {
             .ignoresSafeArea(edges: .top)
         }
         .task {
-                        await viewModel.getTitles()
-                    }
+            await viewModel.getTitles()
+        }
     }
 }
 
