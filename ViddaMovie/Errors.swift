@@ -11,14 +11,15 @@ enum APIConfigError: Error, LocalizedError {
     case fileNotFound
     case dataLoadingFailed(underlyingError: Error)
     case decodingFailed(underlyingError: Error)
-    
+
     var errorDescription: String? {
         switch self {
         case .fileNotFound:
             return "File not found"
-        case let .dataLoadingFailed(underlyingError):
-            return "Data loading failed: \(underlyingError.localizedDescription)"
-        case let .decodingFailed(underlyingError):
+        case .dataLoadingFailed(let underlyingError):
+            return
+                "Data loading failed: \(underlyingError.localizedDescription)"
+        case .decodingFailed(let underlyingError):
             return "Decoding failed: \(underlyingError.localizedDescription)"
         }
     }
@@ -28,7 +29,7 @@ enum NetworkError: Error, LocalizedError {
     case badURLResponse(underlyingError: Error)
     case missingConfig
     case urlBuildFailed
-    
+
     var errorDescription: String? {
         switch self {
         case .badURLResponse(underlyingError: let error):

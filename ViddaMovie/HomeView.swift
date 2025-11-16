@@ -19,10 +19,12 @@ struct HomeView: View {
                     EmptyView()
                 case .fetching:
                     ProgressView()
+                        .frame(width: geo.size.width, height: geo.size.height)
                 case .success:
                     LazyVStack(spacing: 0) {
                         // Hero Image Section
-                        AsyncImage(url: URL(string: Constants.testTitleURL)) { image in
+                        AsyncImage(url: URL(string: Constants.testTitleURL)) {
+                            image in
                             image
                                 .resizable()
                                 .scaledToFit()
@@ -66,19 +68,31 @@ struct HomeView: View {
                             }
                         }
                         .padding(.vertical, 20)
-                        
+
                         // Movie Lists
-                        HorizontalListView(header: Constants.trendingMovieString, titles: viewModel.trendingMovies)
-//                        HorizontalListView(header: Constants.trendingTVString, titles: viewModel.trendingTV)
-//                        HorizontalListView(header: Constants.topRatedMovieString, titles: viewModel.topRatedMovies)
-//                        HorizontalListView(header: Constants.topRatedTVString, titles: viewModel.topRatedTV)
+                        HorizontalListView(
+                            header: Constants.trendingMovieString,
+                            titles: viewModel.trendingMovies
+                        )
+                        HorizontalListView(
+                            header: Constants.trendingTVString,
+                            titles: viewModel.trendingTV
+                        )
+                        HorizontalListView(
+                            header: Constants.topRatedMovieString,
+                            titles: viewModel.topRatedMovies
+                        )
+                        HorizontalListView(
+                            header: Constants.topRatedTVString,
+                            titles: viewModel.topRatedTV
+                        )
                     }
                 case .failed(let error):
                     Text("Error: " + String(describing: error))
                 }
-                
+
             }
-            
+
             .ignoresSafeArea(edges: .top)
         }
         .task {
