@@ -22,9 +22,9 @@ struct Title: Decodable, Identifiable {
     static var previewTitle = [
         Title(
             id: 1,
-            title: "BeetleJuice",
-            name: "BeetleJuice",
-            overview: "A movie about BeetleJuice",
+            title: "Fast And Furious",
+            name: "Fast And Furious",
+            overview: "A movie about Fast And Furious",
             posterPath: Constants.testTitleURL
         ),
         Title(

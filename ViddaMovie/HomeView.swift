@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    var heroTestTitle = Constants.testTitleURL
+    
     let viewModel = ViewModel()
 
     var body: some View {
@@ -23,7 +23,7 @@ struct HomeView: View {
                 case .success:
                     LazyVStack(spacing: 0) {
                         // Hero Image Section
-                        AsyncImage(url: URL(string: Constants.testTitleURL)) {
+                        AsyncImage(url: URL(string: viewModel.heroTitle.posterPath ?? "")) {
                             image in
                             image
                                 .resizable()
