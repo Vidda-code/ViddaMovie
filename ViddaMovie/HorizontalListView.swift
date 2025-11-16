@@ -30,7 +30,7 @@ struct HorizontalListView: View {
                             ProgressView()
                         }
                         .frame(width: 120, height: 200)
-                        onTapGesture {
+                        .onTapGesture {
                             onSelect(title)
                         }
                     }
