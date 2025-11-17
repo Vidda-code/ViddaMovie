@@ -27,7 +27,7 @@ struct ContentView: View {
                 Constants.downloadString,
                 systemImage: Constants.downloadIconString
             ) {
-                Text(Constants.downloadString)
+                DownloadView()
             }
         }
     }
