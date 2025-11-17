@@ -40,6 +40,6 @@ struct Title: Decodable, Identifiable, Hashable {
             name: "The Dark Knight",
             overview: "A movie about the Dark Knight",
             posterPath: Constants.testTitleURL3
-        ),
+        )
     ]
 }

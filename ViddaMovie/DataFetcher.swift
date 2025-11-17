@@ -36,7 +36,7 @@ struct DataFetcher {
     }
 
     // https://www.googleapis.com/youtube/v3/search?q=Breaking%20Bad%20trailer&key=AIzaSyCXHi7FlOgzQwSpM62lGQB44tvEeGrZFeI
-    func fetchVideoID(for title: String) async throws -> String? {
+    func fetchVideoId(for title: String) async throws -> String? {
         guard let baseSearchURL = youtubeSearchURL else {
             throw NetworkError.missingConfig
         }
