@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct DownloadView: View {
-    @Query var saveTitles: [Title]
+    @Query(sort: \Title.title) var saveTitles: [Title]
 
     var body: some View {
         NavigationStack {
@@ -19,7 +19,7 @@ struct DownloadView: View {
                     .font(.title3)
                     .bold()
             } else {
-                VerticalListView(titles: saveTitles)
+                VerticalListView(titles: saveTitles, canDelete: true)
             }
         }
     }
