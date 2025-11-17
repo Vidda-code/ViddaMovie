@@ -10,7 +10,8 @@ import SwiftUI
 struct SearchView: View {
     var titles = Title.previewTitle
     @State private var searchByMovies = true
-
+    @State private var searchText = ""
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -39,14 +40,16 @@ struct SearchView: View {
                     Button {
                         searchByMovies.toggle()
                     } label: {
-                        Image(systemName:
+                        Image(
+                            systemName:
                                 searchByMovies
-                                    ? Constants.movieIconString
-                                    : Constants.tvIconString
-                            )
+                                ? Constants.movieIconString
+                                : Constants.tvIconString
+                        )
                     }
                 }
             }
+            .searchable(text: $searchText, prompt: searchByMovies ? Constants.moviePlaceHolderString : Constants.tvPlaceHolderString)
         }
     }
 }
