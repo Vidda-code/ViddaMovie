@@ -15,6 +15,8 @@ struct DataFetcher {
 
     // https://api.themoviedb.org/3/trending/movie/day?api_key=de6ed396dd5b853e0404384cd8b0baa0
     // https://api.themoviedb.org/3/movie/top_rated?api_key=de6ed396dd5b853e0404384cd8b0baa0
+    // https://api.themoviedb.org/3/movie/upcoming?api_key=de6ed396dd5b853e0404384cd8b0baa0
+    
     func fetchTitles(
         for media: String,
         by type: String
@@ -104,9 +106,9 @@ struct DataFetcher {
 
         var path: String
         if type == "trending" {
-            path = "3/trending/\(media)/day"
-        } else if type == "top_rated" {
-            path = "3/\(media)/top_rated"
+            path = "3/\(type)/\(media)/day"
+        } else if type == "top_rated" || type == "upcoming"{
+            path = "3/\(media)/\(type)"
         } else {
             throw NetworkError.urlBuildFailed
         }
