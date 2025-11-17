@@ -19,11 +19,15 @@ struct Constants {
     static let trendingTVString: String = "Trending TV"
     static let topRatedMovieString: String = "Top Rated Movies"
     static let topRatedTVString: String = "Top Rated TV"
+    static let movieSearchString: String = "Movie Search"
+    static let tvSearchString: String = "TV Search"
 
     static let homeIconString = "house"
     static let upcomingIconString = "play.circle"
     static let searchIconString = "magnifyingglass"
     static let downloadIconString = "arrow.down.to.line.alt"
+    static let tvIconString = "tv"
+    static let movieIconString = "movieclapper"
 
     static let testTitleURL =
         "https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
@@ -45,7 +49,7 @@ struct Constants {
 enum YoutubeURLStrings: String {
     case trailer = "trailer"
     case queryShorten = "q"
-    case space = " "
+    case space = ""
     case key = "key"
 }
 
