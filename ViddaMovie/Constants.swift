@@ -67,3 +67,13 @@ extension Text {
             }
     }
 }
+
+extension Text {
+    func errorMessage() -> some View {
+        self
+            .foregroundStyle(Color.red)
+            .padding()
+            .background(.ultraThinMaterial)
+            .clipShape(.rect(cornerRadius: 10))
+    }
+}

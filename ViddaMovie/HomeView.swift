@@ -108,7 +108,12 @@ struct HomeView: View {
                         }
 
                     case .failed(let error):
-                        Text("Error: " + String(describing: error))
+                        Text(error.localizedDescription)
+                            .errorMessage()
+                            .frame(
+                                width: geo.size.width,
+                                height: geo.size.height
+                            )
                     }
 
                 }
